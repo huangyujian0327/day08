@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xiaoshu.dao.DeptMapper">
+    <select id="findDept" parameterType="deptVo" resultType="dept">
+    select * from dept d
+    <where>
+    <if test="name !=null and name!=''">
+        d.name like '%${name}%'
+    </if>
+   
+    </where>
+     <if test="orderByClause!=null">
+    order by d.${orderByClause}
+    </if>
+    </select>
+</mapper>
